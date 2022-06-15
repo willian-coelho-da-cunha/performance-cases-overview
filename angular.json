@@ -62,7 +62,8 @@
               "projects/marketplace/src/assets"
             ],
             "styles": [
-              "projects/marketplace/src/styles.scss"
+              "projects/marketplace/src/styles.scss",
+              "dist/will-ui-core/src/assets/will-ui-core.style.scss"
             ],
             "scripts": []
           },
@@ -130,7 +131,8 @@
               "projects/marketplace/src/assets"
             ],
             "styles": [
-              "projects/marketplace/src/styles.scss"
+              "projects/marketplace/src/styles.scss",
+              "dist/will-ui-core/src/assets/will-ui-core.style.scss"
             ],
             "scripts": []
           }

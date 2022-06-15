@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { ButtonIconEnum } from '../enum/button-icon.enum';
 import { ButtonObjectiveEnum } from '../enum/button-objective.enum';
@@ -22,7 +22,9 @@ export class ButtonComponent implements OnChanges {
 
   @Input() ariaLabel = '';
 
-  @Input() objective: number = ButtonObjectiveEnum.Default;
+  @Input() objective = ButtonObjectiveEnum.Default;
+
+  @Output() clickEvent = new EventEmitter<MouseEvent>();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['objective']) {

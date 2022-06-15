@@ -1,13 +1,13 @@
-<ng-container *ngSwitch="objective">
-  <will-button-submit
-    *ngSwitchCase="objectives.Submit"
-    [label]="label"
-    [ariaLabel]="ariaLabel">
-  </will-button-submit>
+<will-button-submit
+  *ngIf="objective === objectives.Submit"
+  [label]="label"
+  [ariaLabel]="ariaLabel"
+  (clickEvent)="clickEvent.emit($event)">
+</will-button-submit>
 
-  <will-button-default
-    *ngSwitchDefault
-    [label]="label"
-    [ariaLabel]="ariaLabel">
-  </will-button-default>
-</ng-container>
+<will-button-default
+  *ngIf="objective === objectives.Default"
+  [label]="label"
+  [ariaLabel]="ariaLabel"
+  (clickEvent)="clickEvent.emit($event)">
+</will-button-default>

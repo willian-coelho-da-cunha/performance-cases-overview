@@ -1,0 +1,25 @@
+<p>Home</p>
+
+<hr />
+
+<nav class="will-app-marketplace__home__navigation">
+  <will-button
+    [label]="'Contact us'"
+    [ariaLabel]="'Contact us'"
+    (clickEvent)="navigateToContactUs()">
+  </will-button>
+  
+  <will-button
+    [label]="'Welcome from Angular'"
+    [ariaLabel]="'Welcome from Angular'"
+    (clickEvent)="navigateToWelcomeFromAngular()">
+  </will-button>
+</nav>
+
+<hr />
+
+<will-latest-recomendations></will-latest-recomendations>
+
+<hr />
+
+<will-financial-status></will-financial-status>

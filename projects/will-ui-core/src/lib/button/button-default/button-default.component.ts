@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'will-button-default',
@@ -14,4 +14,6 @@ export class ButtonDefaultComponent {
   @Input() label = '';
 
   @Input() ariaLabel = '';
+
+  @Output() clickEvent = new EventEmitter<MouseEvent>();
 }

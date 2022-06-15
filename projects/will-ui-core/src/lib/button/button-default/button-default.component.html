@@ -1,6 +1,7 @@
 <button
   type="button"
-  [attr.aria-label]="ariaLabel">
+  [attr.aria-label]="ariaLabel"
+  (click)="clickEvent.emit($event)">
   <span aria-hidden="true">
     Default => {{ label }}
   </span>
