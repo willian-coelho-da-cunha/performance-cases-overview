@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "will-ui-core": {
+      "projectType": "library",
+      "root": "projects/will-ui-core",
+      "sourceRoot": "projects/will-ui-core/src",
+      "prefix": "will",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/will-ui-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/will-ui-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/will-ui-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/will-ui-core/src/test.ts",
+            "tsConfig": "projects/will-ui-core/tsconfig.spec.json",
+            "karmaConfig": "projects/will-ui-core/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "will-ui-core"
 }
