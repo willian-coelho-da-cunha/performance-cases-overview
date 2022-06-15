@@ -1,0 +1,13 @@
+<ng-container *ngSwitch="objective">
+  <will-button-submit
+    *ngSwitchCase="objectives.Submit"
+    [label]="label"
+    [ariaLabel]="ariaLabel">
+  </will-button-submit>
+
+  <will-button-default
+    *ngSwitchDefault
+    [label]="label"
+    [ariaLabel]="ariaLabel">
+  </will-button-default>
+</ng-container>

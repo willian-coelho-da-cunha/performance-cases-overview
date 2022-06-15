@@ -10,6 +10,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "preserveConstEnums": false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -23,8 +24,12 @@
       "dom"
     ],
     "paths": {
-      "will-ui-core": [
-        "dist/will-ui-core/will-ui-core",
+      "@will/ui-core/*": [
+        "projects/will-ui-core/*",
+        "projects/will-ui-core"
+      ],
+      "@will/ui-core": [
+        "dist/will-ui-core/*",
         "dist/will-ui-core"
       ]
     }
