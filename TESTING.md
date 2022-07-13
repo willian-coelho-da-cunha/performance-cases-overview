@@ -100,3 +100,10 @@ npm install jest-preset-angular --save-dev
 - Create `projects/will-ui-core/src/setup-jest.ts` file.
 - Create `projects/marketplace/src/setup-jest.ts` file.
 - Add `import 'jest-preset-angular/setup-jest';` to the both files.
+
+## Install Jest-axe
+
+```
+npm install jest-axe --save-dev
+npm install @types/jest-axe --save-dev
+```
