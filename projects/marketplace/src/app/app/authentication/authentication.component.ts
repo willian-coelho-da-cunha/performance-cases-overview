@@ -36,6 +36,7 @@ export class AuthenticationComponent implements OnDestroy {
         .pipe(takeUntil(this.end))
         .subscribe({
           next: (isAuthorized: boolean): void => {
+            console.log(isAuthorized)
             if (isAuthorized) {
               this.router.navigateByUrl('/home');
 

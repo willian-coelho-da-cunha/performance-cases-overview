@@ -14,7 +14,7 @@ export class FinancialStatusComponent implements OnInit, OnDestroy {
 
   private readonly end: Subject<void> = new Subject<void>();
 
-  latestOrders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  latestOrders = [1, 2];
 
   financialStatus: FinancialStatusInterface = {
     available_balance: 0,

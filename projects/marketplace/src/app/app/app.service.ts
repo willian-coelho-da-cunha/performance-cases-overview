@@ -16,8 +16,8 @@ export class AppService {
 
   authorize(email: string, password: string): Observable<boolean> {
     return this.httpClient
-      .get<ClientInterface>(`http://localhost:3000/clients?email=${email}&password=${password}`)
-      .pipe(map((response: ClientInterface) => response && typeof response.id === 'number'))
+      .get<Array<ClientInterface>>(`http://localhost:3000/clients?email=${email}&password=${password}`)
+      .pipe(map((response: Array<ClientInterface>) => response?.length === 1))
     ;
   }
 
