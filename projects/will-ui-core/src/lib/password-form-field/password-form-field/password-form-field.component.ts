@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'will-password-form-field',
@@ -10,7 +11,31 @@ import { FormControl, Validators } from '@angular/forms';
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PasswordFormFieldComponent {
+export class PasswordFormFieldComponent implements OnInit, OnDestroy {
+
+  private readonly end: Subject<void> = new Subject<void>();
 
   formControl = new FormControl('', [ Validators.required, Validators.minLength(6), Validators.maxLength(12) ]);
+
+  @Output() private changePassword: EventEmitter<string> = new EventEmitter<string>();
+
+  ngOnInit(): void {
+    this.observeFormControlValueChanges();
+  }
+
+  ngOnDestroy(): void {
+    this.end.next();
+    this.end.complete();
+  }
+
+  private observeFormControlValueChanges(): void {
+    this.formControl.valueChanges
+      .pipe(takeUntil(this.end))
+      .subscribe({
+        next: (password: string): void => {
+          this.changePassword.emit(password);
+        }
+      })
+    ;
+  }
 }
