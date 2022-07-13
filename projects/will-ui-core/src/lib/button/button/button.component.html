@@ -1,13 +1,15 @@
 <will-button-submit
   *ngIf="objective === objectives.Submit"
   [label]="label"
+  [disabled]="disabled"
   [ariaLabel]="ariaLabel"
-  (clickEvent)="clickEvent.emit($event)">
+  (clickEvent)="click($event)">
 </will-button-submit>
 
 <will-button-default
   *ngIf="objective === objectives.Default"
   [label]="label"
+  [disabled]="disabled"
   [ariaLabel]="ariaLabel"
-  (clickEvent)="clickEvent.emit($event)">
+  (clickEvent)="click($event)">
 </will-button-default>

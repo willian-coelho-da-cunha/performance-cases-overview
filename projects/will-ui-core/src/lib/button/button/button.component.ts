@@ -16,15 +16,17 @@ export class ButtonComponent implements OnChanges {
 
   objectives = ButtonObjectiveEnum;
 
-  icon = '';
+  icon: string = '';
 
-  @Input() label = '';
+  @Input() label: string = '';
 
-  @Input() ariaLabel = '';
+  @Input() disabled: boolean = false;
+
+  @Input() ariaLabel: string = '';
 
   @Input() objective = ButtonObjectiveEnum.Default;
 
-  @Output() clickEvent = new EventEmitter<MouseEvent>();
+  @Output() private clickEvent: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['objective']) {
@@ -35,5 +37,9 @@ export class ButtonComponent implements OnChanges {
         this.icon = ButtonIconEnum.None;
       }
     }
+  }
+
+  public click($event: MouseEvent): void {
+    this.clickEvent.emit($event);
   }
 }

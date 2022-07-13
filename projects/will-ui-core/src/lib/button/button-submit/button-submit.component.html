@@ -2,7 +2,8 @@
   type="submit"
   class="willuicore__button-submit"
   [attr.aria-label]="ariaLabel"
-  (click)="clickEvent.emit($event)">
+  [disabled]="disabled"
+  (click)="click($event)">
   <span aria-hidden="true">
     Submit => {{ label }}
   </span>

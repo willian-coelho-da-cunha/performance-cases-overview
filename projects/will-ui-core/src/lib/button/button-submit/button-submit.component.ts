@@ -11,9 +11,15 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 })
 export class ButtonSubmitComponent {
 
-  @Input() label = '';
+  @Input() label: string = '';
 
-  @Input() ariaLabel = '';
+  @Input() disabled: boolean = false;
 
-  @Output() clickEvent = new EventEmitter<MouseEvent>();
+  @Input() ariaLabel: string = '';
+
+  @Output() private clickEvent: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
+  public click($event: MouseEvent): void {
+    this.clickEvent.emit($event);
+  }
 }
