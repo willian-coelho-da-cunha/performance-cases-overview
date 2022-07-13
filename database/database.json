@@ -1,4 +1,20 @@
 {
+  "clients": [
+    {
+      "id": 1,
+      "name": "Willian Coelho da Cunha",
+      "email": "willian@hotmail.com",
+      "password": "password",
+      "previous_access": 1657700671908
+    },
+    {
+      "id": 2,
+      "name": "Willian C. da Cunha Junior",
+      "email": "junior@hotmail.com",
+      "password": "1234pass",
+      "previous_access": 1657700747021
+    }
+  ],
   "financial_status": {
     "available_balance": 5000,
     "debit_balance": 6500

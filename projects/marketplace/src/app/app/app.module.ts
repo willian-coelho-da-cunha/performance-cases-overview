@@ -7,9 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ButtonModule } from '@will/ui-core/src/lib/button';
+import { EmailFormFieldModule } from '@will/ui-core/src/lib/email-form-field';
+import { PasswordFormFieldModule } from '@will/ui-core/src/lib/password-form-field';
 
 import { AppComponent } from './app/app.component';
 import { HomeComponent } from './home/home.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 import { FinancialStatusComponent } from './financial-status/financial-status.component';
 import { LatestRecomendationsComponent } from './latest-recomendations/latest-recomendations.component';
 
@@ -17,6 +20,7 @@ import { LatestRecomendationsComponent } from './latest-recomendations/latest-re
   declarations: [
     AppComponent,
     HomeComponent,
+    AuthenticationComponent,
     FinancialStatusComponent,
     LatestRecomendationsComponent
   ],
@@ -26,7 +30,9 @@ import { LatestRecomendationsComponent } from './latest-recomendations/latest-re
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ButtonModule
+    ButtonModule,
+    EmailFormFieldModule,
+    PasswordFormFieldModule
   ],
   providers: [],
   bootstrap: [

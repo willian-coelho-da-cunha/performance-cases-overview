@@ -1,0 +1,16 @@
+<form>
+  <will-email-form-field
+    (changeEmail)="changeEmail($event)">
+  </will-email-form-field>
+
+  <will-password-form-field
+    (changePassword)="changePassword($event)">
+  </will-password-form-field>
+
+  <will-button
+    [label]="'Acessar'"
+    [ariaLabel]="'Acessar'"
+    [objective]="0"
+    (clickEvent)="authorize()">
+  </will-button>
+</form>
