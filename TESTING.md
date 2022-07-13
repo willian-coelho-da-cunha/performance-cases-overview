@@ -58,3 +58,9 @@ jest --init
 ```
 npm install ts-node --save-dev
 ```
+
+### Install jest-environment-jsdom
+
+```
+npm install jest-environment-jsdom --save-dev
+```
