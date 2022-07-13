@@ -50,3 +50,11 @@ jest --init
 - Do you want Jest to add coverage reports? … yes
 - Which provider should be used to instrument code for coverage? › v8
 - Automatically clear mock calls, instances, contexts and results before every test? … yes
+
+### Install ts-node
+
+'ts-node' is required for the TypeScript configuration files.
+
+```
+npm install ts-node --save-dev
+```
