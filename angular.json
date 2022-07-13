@@ -5,6 +5,11 @@
   "projects": {
     "will-ui-core": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/will-ui-core",
       "sourceRoot": "projects/will-ui-core/src",
       "prefix": "will",
