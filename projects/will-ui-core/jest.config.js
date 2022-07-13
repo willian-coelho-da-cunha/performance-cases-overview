@@ -11,6 +11,9 @@ module.exports = {
     }
   },
   coverageDirectory: '<rootDir>coverage/libs/will-ui-core',
+  testEnvironmentOptions: {
+    url: 'https://jestjs.io'
+  },
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

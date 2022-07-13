@@ -11,6 +11,12 @@ module.exports = {
     }
   },
   coverageDirectory: '<rootDir>coverage/apps/marketplace',
+  moduleNameMapper: {
+    "@will/ui-core/src/lib/button": "<rootDir>projects/will-ui-core/src/lib/button/index.ts"
+  },
+  testEnvironmentOptions: {
+    url: 'https://jestjs.io'
+  },
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

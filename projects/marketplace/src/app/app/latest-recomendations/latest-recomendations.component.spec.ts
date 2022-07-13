@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LatestRecomendationsComponent } from './latest-recomendations.component';
@@ -8,7 +9,12 @@ describe('LatestRecomendationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LatestRecomendationsComponent ]
+      declarations: [
+        LatestRecomendationsComponent
+      ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   });

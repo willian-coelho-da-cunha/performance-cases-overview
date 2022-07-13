@@ -1,25 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SpectatorHost, createHostFactory } from '@ngneat/spectator';
+
+import { ButtonModule } from '../button.module';
 
 import { ButtonComponent } from './button.component';
 
+const USE_CASES = {
+  basic: `<will-button></will-button>`
+};
+
 describe('ButtonComponent', () => {
-  let component: ButtonComponent;
-  let fixture: ComponentFixture<ButtonComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
-    })
-    .compileComponents();
+  let subject: SpectatorHost<ButtonComponent>;
+
+  const createHost = createHostFactory({
+    component: ButtonComponent,
+    declareComponent: false,
+    imports: [
+      ButtonModule
+    ]
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create an instance.', () => {
+    subject = createHost(
+      USE_CASES.basic,
+      { props: {
+        label: 'Send',
+        ariaLabel: 'Send form data'
+      }}
+    );
+    expect(subject.component).toBeTruthy();
   });
 });
