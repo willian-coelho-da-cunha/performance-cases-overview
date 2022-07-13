@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { EmailFormFieldComponent } from './email-form-field.component';
+import { PasswordFormFieldComponent } from './password-form-field.component';
 
-describe('EmailFormFieldComponent', () => {
-  let component: EmailFormFieldComponent;
-  let fixture: ComponentFixture<EmailFormFieldComponent>;
+describe('PasswordFormFieldComponent', () => {
+  let component: PasswordFormFieldComponent;
+  let fixture: ComponentFixture<PasswordFormFieldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        EmailFormFieldComponent
+        PasswordFormFieldComponent
       ],
       imports: [
         ReactiveFormsModule
@@ -20,7 +20,7 @@ describe('EmailFormFieldComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmailFormFieldComponent);
+    fixture = TestBed.createComponent(PasswordFormFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
