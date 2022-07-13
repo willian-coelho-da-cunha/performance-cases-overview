@@ -107,3 +107,9 @@ npm install jest-preset-angular --save-dev
 npm install jest-axe --save-dev
 npm install @types/jest-axe --save-dev
 ```
+
+## Install Spectator
+
+```
+npm install @ngneat/spectator@~10 --save-dev
+```
