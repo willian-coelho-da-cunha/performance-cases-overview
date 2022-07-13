@@ -13,11 +13,15 @@ export class AuthenticationComponent implements OnDestroy {
 
   private readonly end: Subject<void> = new Subject<void>();
 
-  private email: string = '';
+  private email: { email: string; invalid: boolean } = { email: '', invalid: true };
 
-  private password: string = '';
+  private password: { password: string; invalid: boolean; } = { password: '', invalid: true };
 
   isAuthorizing: boolean = false;
+
+  emailInvalid: boolean = true;
+
+  passwordInvalid: boolean = true;
 
   constructor(
     private router: Router,
@@ -32,7 +36,7 @@ export class AuthenticationComponent implements OnDestroy {
   public authorize(): void {
     if (!this.isAuthorizing) {
       this.isAuthorizing = true;
-      this.appService.authorize(this.email, this.password)
+      this.appService.authorize(this.email.email, this.password.password)
         .pipe(takeUntil(this.end))
         .subscribe({
           next: (isAuthorized: boolean): void => {
@@ -49,11 +53,13 @@ export class AuthenticationComponent implements OnDestroy {
     }
   }
 
-  public changeEmail($event: string): void {
+  public changeEmail($event: { email: string; invalid: boolean; }): void {
     this.email = $event;
+    this.emailInvalid = $event.invalid;
   }
 
-  public changePassword($event: string): void {
+  public changePassword($event: { password: string; invalid: boolean }): void {
     this.password = $event;
+    this.passwordInvalid = $event.invalid;
   }
 }

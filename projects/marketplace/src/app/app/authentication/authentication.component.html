@@ -9,7 +9,7 @@
 
   <will-button
     [label]="'Acessar'"
-    [disabled]="isAuthorizing"
+    [disabled]="isAuthorizing || emailInvalid || passwordInvalid"
     [ariaLabel]="'Acessar'"
     [objective]="1"
     (clickEvent)="authorize()">

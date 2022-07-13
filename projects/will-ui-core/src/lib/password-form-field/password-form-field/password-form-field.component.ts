@@ -17,7 +17,7 @@ export class PasswordFormFieldComponent implements OnInit, OnDestroy {
 
   formControl = new FormControl('', [ Validators.required, Validators.minLength(6), Validators.maxLength(12) ]);
 
-  @Output() private changePassword: EventEmitter<string> = new EventEmitter<string>();
+  @Output() private changePassword: EventEmitter<{ password: string; invalid: boolean; }> = new EventEmitter<{ password: string; invalid: boolean; }>();
 
   ngOnInit(): void {
     this.observeFormControlValueChanges();
@@ -33,7 +33,7 @@ export class PasswordFormFieldComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.end))
       .subscribe({
         next: (password: string): void => {
-          this.changePassword.emit(password);
+          this.changePassword.emit({ password: password, invalid: this.formControl.invalid });
         }
       })
     ;

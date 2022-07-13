@@ -17,7 +17,7 @@ export class EmailFormFieldComponent implements OnInit, OnDestroy {
 
   formControl = new FormControl('', [ Validators.required, Validators.email ]);
 
-  @Output() private changeEmail: EventEmitter<string> = new EventEmitter<string>();
+  @Output() private changeEmail: EventEmitter<{ email: string; invalid: boolean }> = new EventEmitter<{ email: string; invalid: boolean }>();
 
   ngOnInit(): void {
     this.observeFormControlValueChanges();
@@ -33,7 +33,7 @@ export class EmailFormFieldComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.end))
       .subscribe({
         next: (email: string): void => {
-          this.changeEmail.emit(email);
+          this.changeEmail.emit({ email: email, invalid: this.formControl.invalid });
         }
       })
     ;
