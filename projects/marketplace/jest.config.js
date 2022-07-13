@@ -12,7 +12,7 @@ module.exports = {
   },
   coverageDirectory: '<rootDir>coverage/apps/marketplace',
   moduleNameMapper: {
-    "@will/ui-core/src/lib/button": "<rootDir>projects/will-ui-core/src/lib/button/index.ts"
+    "@will/ui-core/src/lib/button": "<rootDir>dist/will-ui-core/fesm2020/will-ui-core-src-lib-button.mjs"
   },
   testEnvironmentOptions: {
     url: 'https://jestjs.io'
