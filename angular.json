@@ -25,11 +25,10 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/will-ui-core/src/test.ts",
-            "tsConfig": "projects/will-ui-core/tsconfig.spec.json",
-            "karmaConfig": "projects/will-ui-core/karma.conf.js"
+            "tsConfig": "tsconfig.spec.json",
+            "configPath": "jest.config.js"
           }
         }
       }
@@ -119,13 +118,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/marketplace/src/test.ts",
-            "polyfills": "projects/marketplace/src/polyfills.ts",
-            "tsConfig": "projects/marketplace/tsconfig.spec.json",
-            "karmaConfig": "projects/marketplace/karma.conf.js",
-            "inlineStyleLanguage": "scss",
+            "tsConfig": "tsconfig.spec.json",
+            "configPath": "jest.config.js",
             "assets": [
               "projects/marketplace/src/favicon.ico",
               "projects/marketplace/src/assets"

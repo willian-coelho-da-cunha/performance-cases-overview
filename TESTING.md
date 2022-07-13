@@ -64,3 +64,39 @@ npm install ts-node --save-dev
 ```
 npm install jest-environment-jsdom --save-dev
 ```
+
+### Install @angular-builders/jest
+
+```
+npm install @angular-builders/jest@~13 --save-dev
+```
+
+In **will-ui-core** project:
+- Delete `projects/will-ui-core/karma.conf.js`.
+- Delete `projects/will-ui-core/src/test.ts`.
+- In `projects/will-ui-core/tsconfig.spec.json`, `files` array, delete `src/test.ts`.
+- In `projects/will-ui-core/tsconfig.lib.json`, `exclude` array, delete `src/test.ts`.
+- In `projects/will-ui-core/tsconfig.spec.json`, `compilerOptions:types` array, replace **jasmine** with **jest**.
+- In `angular.json`, `projects:will-ui-core:architect:test:builder` put **@angular-builders/jest:run**.
+- In `angular.json`, remove `projects:will-ui-core:architect:test:options:main`.
+
+In **marketplace** project:
+- Delete `projects/marketplace/karma.conf.js`.
+- Delete `projects/marketplace/src/test.ts`.
+- In `projects/marketplace/tsconfig.spec.json`, `files` array, delete `src/test.ts`.
+- In `projects/marketplace/tsconfig.spec.json`, `compilerOptions:types` array, replace **jasmine** with **jest**.
+- In `angular.json`, `projects:marketplace:architect:test:builder` put **@angular-builders/jest:run**.
+- In `angular.json`, remove `projects:marketplace:architect:test:options:main`.
+- In `angular.json`, remove `projects:marketplace:architect:test:options:karmaConfig`.
+
+- In `tsconfig.json`, `compilerOptions:types` array, add **jest**.
+
+### Install jest-preset-angular
+
+```
+npm install jest-preset-angular --save-dev
+```
+
+- Create `projects/will-ui-core/src/setup-jest.ts` file.
+- Create `projects/marketplace/src/setup-jest.ts` file.
+- Add `import 'jest-preset-angular/setup-jest';` to the both files.
