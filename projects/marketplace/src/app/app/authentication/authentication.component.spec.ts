@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ButtonModule } from '@will/ui-core/src/lib/button';
 import { EmailFormFieldModule } from '@will/ui-core/src/lib/email-form-field';
@@ -16,6 +18,8 @@ describe('AuthenticationComponent', () => {
         AuthenticationComponent
       ],
       imports: [
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         ButtonModule,
         EmailFormFieldModule,
         PasswordFormFieldModule
