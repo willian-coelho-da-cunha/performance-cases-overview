@@ -20,6 +20,8 @@ export class ButtonSubmitComponent {
   @Output() private clickEvent: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
   public click($event: MouseEvent): void {
-    this.clickEvent.emit($event);
+    if (!this.disabled) {
+      this.clickEvent.emit($event);
+    }
   }
 }

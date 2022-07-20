@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -20,6 +20,8 @@ export class PasswordFormFieldComponent implements OnInit, OnDestroy {
   readonly id: string = '';
 
   formControl = new FormControl('', [ Validators.required, Validators.minLength(6), Validators.maxLength(12) ]);
+
+  @Input() label: string = 'Senha';
 
   @Output() private changePassword: EventEmitter<{ password: string; invalid: boolean; }> = new EventEmitter<{ password: string; invalid: boolean; }>();
 

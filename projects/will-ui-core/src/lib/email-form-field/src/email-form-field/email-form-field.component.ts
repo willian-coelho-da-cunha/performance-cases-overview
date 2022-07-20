@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -20,6 +20,8 @@ export class EmailFormFieldComponent implements OnInit, OnDestroy {
   readonly id: string = '';
 
   formControl = new FormControl('', [ Validators.required, Validators.email ]);
+
+  @Input() label: string = 'E-mail';
 
   @Output() private changeEmail: EventEmitter<{ email: string; invalid: boolean }> = new EventEmitter<{ email: string; invalid: boolean }>();
 
