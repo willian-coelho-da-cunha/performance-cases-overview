@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:will-ui-core && npm run build:marketplace",
+    "build:marketplace": "ng build marketplace",
+    "build:will-ui-core": "ng build will-ui-core",
     "watch": "ng build --watch --configuration development",
-    "test": "npm run test:willuicore && npm run test:marketplace",
-    "test:willuicore": "jest --config='projects/will-ui-core/jest.config.ts'",
-    "test:marketplace": "ng test marketplace",
+    "test": "npm run test:will-ui-core && npm run test:marketplace",
+    "test:marketplace": "jest --config='projects/marketplace/jest.config.ts'",
+    "test:will-ui-core": "jest --config='projects/will-ui-core/jest.config.ts'",
     "server:db": "json-server database/database.json --port=3000"
   },
   "private": true,
