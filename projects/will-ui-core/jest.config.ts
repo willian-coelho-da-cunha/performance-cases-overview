@@ -13,7 +13,23 @@ export default async (): Promise<Config.InitialOptions> => {
         stringifyContentPathRegex: '\\.(html|svg)$'
       }
     },
-    coverageDirectory: '<rootDir>coverage/libs/will-ui-core',
+    collectCoverage: true,
+    collectCoverageFrom: [
+      '**/*.{ts,js,jsx}',
+      '!**/node_modules/**',
+      '!**/coverage/**',
+      '!**/vendor/**',
+      '!**/dist/**'
+    ],
+    coverageDirectory: '<rootDir>../../coverage/libs/will-ui-core',
+    coveragePathIgnorePatterns: [
+      '/node_modules/',
+      'jest.config.ts',
+      'public-api.ts',
+      'public_api.ts',
+      'index.ts',
+      'module.ts'
+    ],
     moduleNameMapper: {
       '@will/ui-core/src/lib/common': '<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-common.mjs'
     },
