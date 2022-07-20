@@ -4,8 +4,9 @@
     class="willuicore__email-form-field__input"
     required="true"
     autocomplete="email"
+    [id]="id"
     [formControl]="formControl" />
-  
+
   <div
     *ngIf="formControl.dirty && (formControl.hasError('required') || formControl.hasError('email'))"
     class="willuicore__email-form-field__error">

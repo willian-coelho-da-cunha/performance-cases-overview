@@ -1,1 +1,1 @@
-export * from './lib/common/locale-config/locale-config.module';
+export * from '@will/ui-core/src/lib/common';

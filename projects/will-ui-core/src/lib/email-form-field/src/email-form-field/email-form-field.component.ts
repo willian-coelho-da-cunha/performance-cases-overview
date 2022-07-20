@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Ou
 import { FormControl, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
+import { UtilService } from '@will/ui-core/src/lib/common';
+
 @Component({
   selector: 'will-email-form-field',
   templateUrl: './email-form-field.component.html',
@@ -15,9 +17,17 @@ export class EmailFormFieldComponent implements OnInit, OnDestroy {
 
   private readonly end: Subject<void> = new Subject<void>();
 
+  readonly id: string = '';
+
   formControl = new FormControl('', [ Validators.required, Validators.email ]);
 
   @Output() private changeEmail: EventEmitter<{ email: string; invalid: boolean }> = new EventEmitter<{ email: string; invalid: boolean }>();
+
+  constructor(
+    private utilService: UtilService
+    ) {
+    this.id = 'will-email-form-field__input--' + this.utilService.getID();
+  }
 
   ngOnInit(): void {
     this.observeFormControlValueChanges();

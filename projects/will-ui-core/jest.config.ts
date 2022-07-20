@@ -14,6 +14,9 @@ export default async (): Promise<Config.InitialOptions> => {
       }
     },
     coverageDirectory: '<rootDir>coverage/libs/will-ui-core',
+    moduleNameMapper: {
+      '@will/ui-core/src/lib/common': '<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-common.mjs'
+    },
     testEnvironment: 'jsdom',
     testEnvironmentOptions: {
       url: 'https://jestjs.io'

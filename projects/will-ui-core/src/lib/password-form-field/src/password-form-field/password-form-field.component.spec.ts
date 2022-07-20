@@ -1,4 +1,5 @@
 import { createHostFactory, Spectator } from '@ngneat/spectator';
+import { axe } from 'jest-axe';
 
 import { PasswordFormFieldModule } from '../password-form-field.module';
 
@@ -19,9 +20,14 @@ describe('PasswordFormFieldComponent', () => {
       PasswordFormFieldModule
     ]
   });
-  
+
   it('should create an instance.', () => {
     subject = createHost(USE_CASES.basic);
     expect(subject.component).toBeTruthy();
+  });
+
+  it('should not have generic accessibilities problems.', async () => {
+    subject = createHost(USE_CASES.basic);
+    expect(await axe(subject.fixture.nativeElement)).toHaveNoViolations();
   });
 });
