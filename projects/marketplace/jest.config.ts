@@ -13,11 +13,28 @@ export default async (): Promise<Config.InitialOptions> => {
         stringifyContentPathRegex: '\\.(html|svg)$'
       }
     },
-    coverageDirectory: '<rootDir>coverage/libs/marketplace',
+    collectCoverage: true,
+    collectCoverageFrom: [
+      '**/*.{ts,js,jsx}',
+      '!**/node_modules/**',
+      '!**/coverage/**',
+      '!**/vendor/**',
+      '!**/dist/**'
+    ],
+    coverageDirectory: '<rootDir>../../coverage/apps/marketplace',
+    coveragePathIgnorePatterns: [
+      '/node_modules/',
+      'jest.config.ts',
+      'main.ts',
+      'module.ts',
+      'polyfills.ts',
+      'environment.ts',
+      'environment.prod.ts'
+    ],
     moduleNameMapper: {
-      "@will/ui-core/src/lib/button": "<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-button.mjs",
-      "@will/ui-core/src/lib/email-form-field": "<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-email-form-field.mjs",
-      "@will/ui-core/src/lib/password-form-field": "<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-password-form-field.mjs"
+      '@will/ui-core/src/lib/button': '<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-button.mjs',
+      '@will/ui-core/src/lib/email-form-field': '<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-email-form-field.mjs',
+      '@will/ui-core/src/lib/password-form-field': '<rootDir>../../dist/will-ui-core/fesm2020/will-ui-core-src-lib-password-form-field.mjs'
     },
     testEnvironment: 'jsdom',
     testEnvironmentOptions: {
