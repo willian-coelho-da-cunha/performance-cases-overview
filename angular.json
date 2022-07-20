@@ -56,13 +56,16 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/marketplace/src/favicon.ico",
-              "projects/marketplace/src/assets"
+              "projects/marketplace/src/assets",
+              "projects/marketplace/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/marketplace/src/styles.scss",
               "dist/will-ui-core/src/assets/will-ui-core.style.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "projects/marketplace/ngsw-config.json"
           },
           "configurations": {
             "production": {
