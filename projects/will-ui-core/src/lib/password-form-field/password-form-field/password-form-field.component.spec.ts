@@ -1,31 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { createHostFactory, Spectator } from '@ngneat/spectator';
+
+import { PasswordFormFieldModule } from '../password-form-field.module';
 
 import { PasswordFormFieldComponent } from './password-form-field.component';
 
+const USE_CASES = {
+  basic: `<will-password-form-field></will-password-form-field>`
+};
+
 describe('PasswordFormFieldComponent', () => {
-  let component: PasswordFormFieldComponent;
-  let fixture: ComponentFixture<PasswordFormFieldComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        PasswordFormFieldComponent
-      ],
-      imports: [
-        ReactiveFormsModule
-      ]
-    })
-    .compileComponents();
+  let subject: Spectator<PasswordFormFieldComponent>;
+
+  const createHost = createHostFactory({
+    component: PasswordFormFieldComponent,
+    declareComponent: false,
+    imports: [
+      PasswordFormFieldModule
+    ]
   });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PasswordFormFieldComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  
+  it('should create an instance.', () => {
+    subject = createHost(USE_CASES.basic);
+    expect(subject.component).toBeTruthy();
   });
 });

@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SpectatorHost, createHostFactory } from '@ngneat/spectator';
 
 import { ButtonSubmitComponent } from './button-submit.component';
 
+const USE_CASES = {
+  basic: `<will-button-submit><will-button-submit>`
+};
+
 describe('ButtonSubmitComponent', () => {
-  let component: ButtonSubmitComponent;
-  let fixture: ComponentFixture<ButtonSubmitComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ButtonSubmitComponent ]
-    })
-    .compileComponents();
-  });
+  let subject: SpectatorHost<ButtonSubmitComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonSubmitComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  const createHost = createHostFactory({
+    component: ButtonSubmitComponent,
+    declarations: [
+      ButtonSubmitComponent
+    ],
+    declareComponent: false
+  })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create an instance.', () => {
+    subject = createHost(USE_CASES.basic);
+    expect(subject.component).toBeTruthy();
   });
 });

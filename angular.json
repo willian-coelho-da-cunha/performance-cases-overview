@@ -28,13 +28,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "configPath": "jest.config.js"
-          }
         }
       }
     },
@@ -120,22 +113,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "marketplace:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "configPath": "jest.config.js",
-            "assets": [
-              "projects/marketplace/src/favicon.ico",
-              "projects/marketplace/src/assets"
-            ],
-            "styles": [
-              "projects/marketplace/src/styles.scss",
-              "dist/will-ui-core/src/assets/will-ui-core.style.scss"
-            ],
-            "scripts": []
           }
         }
       }

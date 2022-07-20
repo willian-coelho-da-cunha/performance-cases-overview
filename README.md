@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Fix problems
+
+### Fix problems occurred in July 13, 2022, during presentation in Angular Guild
+
+1) In **angular.json** file, remove **test** sections: `{ "projects": { "[project-name]": { "architect: { "test": { ... } } } } }`.
+2) Uninstall `@angular-builders/jest`.
+3) Use TypeScript in the Jest configuration file, now named as `jest.config.ts`.
+4) Update implementation in the `setup-jest.ts` file.
+5) Refactor test scripts in the `package.json` file.
